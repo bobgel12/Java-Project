@@ -1,0 +1,14 @@
+ATM
+ATM_1
+10
+21
+12
+ser
+secret
+400
+200
+no
+200
+no
+200
+quit

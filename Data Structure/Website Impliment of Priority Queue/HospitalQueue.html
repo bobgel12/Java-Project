@@ -1,0 +1,507 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-blue.min.css">
+    <title>Hospital Queue</title>
+    <style>
+        .demo-card-square.mdl-card {
+        width: 100%;
+        height: 320px;
+        }
+        .demo-card-square > .mdl-card__title {
+        color: #fff;
+        background: url('https://www.iconexperience.com/_img/v_collection_png/512x512/shadow/patient.png') center / cover;
+        }
+        .container{
+            text-align: center;
+            margin: 20px auto;
+        }
+        .mdl-button{
+            margin-top: 10px;
+        }
+        .mdl-card__title-text{
+            color:black;
+            font-weight: 600; 
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <h1 style="text-align:center">Hospital Waiting Room Queue</h1>
+    <div class="container">
+            <button id="btn0" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Random 20 news Patients
+            </button>
+            <button id="btn1" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Get next Patient infomation
+            </button>
+            <button id="btn2" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Call and remove the next person
+            </button>
+            <button id="btn3" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Change Condition of a patient
+            </button>
+            <button id="btn4" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Add a patient into the Queue
+            </button>
+            <button id="btn5" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Sort the Queue base on the Condition
+            </button>
+    </div>
+    <h6 style="text-align:center">Current Queue</h6>
+        <div class="mdl-grid">
+            <div id="card0" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name0" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition0" class="mdl-card__supporting-text">
+                            Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card1" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name1" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition1" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card2" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name2" class="mdl-card__title-text">  Name</h2>
+                    </div>
+                    <div id="condition2" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card3" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name3" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition3" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card4" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name4" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition4" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card5" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name5" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition5" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card6" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name6" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition6" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card7" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name7" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition7" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card8" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name8" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition8" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card9" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name9" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition9" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card10" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name10" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition10" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card11" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name11" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition11" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card12" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name12" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition12" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card13" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name13" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition13" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card14" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name14" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition14" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card15" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name15" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition15" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card16" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name16" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition16" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card17" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name17" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition17" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card18" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name18" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition18" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+            <div id="card19" class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--6-col-phone">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp ">
+                    <div class="mdl-card__title mdl-card--expand">
+                        <h2 id="name19" class="mdl-card__title-text">Name</h2>
+                    </div>
+                    <div id="condition19" class="mdl-card__supporting-text">
+                              Condition: 20
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script>  
+        // Patient class
+        class Patient {
+            //	Construction of Patient class.
+                constructor(name,condition){
+                    this.name = name;
+                    this.condition = condition;
+                    this.info = this.name + ", Condition: "+this.condition;
+                }
+            //	Get name of a patient.
+                getName() {
+                    return this.name;
+                }
+            //	Set name of a patient.
+                setName(name) {
+                    this.name = name;
+                }
+            //	Get condition of a patient.
+                getCondition() {
+                    return this.condition;
+                }
+            //	Set condition of a patient.
+                setCondition(condition) {
+                    this.condition = condition;
+                }
+            //	Get full properties of a patient. 
+                getInfo() {
+                    return("Name: "+ this.name + ", Condition: "+ this.condition);
+                }
+            }
+            
+
+        // Main function
+        // Heapsort Function
+    class Heapsort {
+        constructor(){
+            this.heap_size = 0;
+            this.largest = 0;
+        }
+        parent( i) {
+            return Math.floor(i/2);
+        }
+        left( i) {
+            return 2*i;
+        }
+        right( i) {
+            return (2*i+1);
+        }
+        //	Method for swapping Patient 
+        swaps(Patients,  a,  b) {
+            var temp = Patients[a];
+            Patients[a] = Patients[b];
+            Patients[b] = temp;
+        }
+        //	Method Max-Heapify from the textbook, used for maintaining the max-heap property.
+        Max_Heapify(Patients,  i){
+            var l = this.left(i);
+            var r = this.right(i)
+            if	((l < this.heap_size) && ( Patients[l].condition > Patients[i].condition)) 
+                {
+                    this.largest = l;
+                } else this.largest = i;
+            if	((r < this.heap_size) && (Patients[r].condition > Patients[this.largest].condition)) 
+                {
+                    this.largest = r;
+                }
+            if	(this.largest != i) {
+                this.swaps(Patients, i, this.largest);
+                this.Max_Heapify(Patients, this.largest);
+            }
+        }
+        //	Method Build-Max-Heap from textbook, used for building max-heap tree.
+        Build_Max_Heap(Patients) {
+            this.heap_size = Patients.length;
+            for (i = Math.floor(this.heap_size/2); i>=0; i--){
+                this.Max_Heapify(Patients,i);
+            }
+        }
+        //	Method Heapsort from textbook, used for sorting the array.
+        heapsort(A) {
+            this.Build_Max_Heap(A);
+            for(i = this.heap_size - 1; i>=1; i--) {
+                this.swaps(A, 0, i);
+                this.heap_size --;
+                this.Max_Heapify(A,0);
+            }
+        }
+        //	Method Max-Heap-Insert from textbook, used for inserting a new element but keeping the max-heap tree property.
+        Max_Heap_Insert(Patients, X) {
+            this.heap_size ++;
+            Patients.push(X);
+            // Patients[(this.heap_size - 1)] = X;
+            this.Heap_Increase_Key(Patients, Patients.length - 1 , X.condition);
+        }
+        // 	Method Heap-Maximum from text book, used to get the current largest key value element.
+        Heap_Maximum(Patients) {
+            return Patients[0];
+        }
+        //	Method Heap-Increase-Key from textbook, used for increasing any element's key.
+        Heap_Increase_Key(Patients, i, key) {
+            if	(key < Patients[i].condition) {
+                console.log("Error, New condition is smaller than current condition");
+            }
+            Patients[i].setCondition(key);
+            while (i>0 && (Patients[this.parent(i)].condition < Patients[i].condition )) {
+                this.swaps(Patients, i, this.parent(i));
+                i = this.parent(i);
+            }
+        }
+        //	Method Heap-Extract-Max from textbook, used for getting and removing the current largest key value elements.
+        Heap_Extract_Max(Patients) {
+            if (Patients.length < 1){
+                return new Patient("",0);
+            }
+            var max = Patients[0];
+            Patients[0] = Patients[this.heap_size-1];
+            // New line of code to avoid the lessser condition in HeapIncreaseKey and Insert
+            // Patients[this.heap_size].setCondition(0);
+            Patients.pop();
+            this.heap_size --;
+            this.Max_Heapify(Patients, 0);
+            return max;
+        }
+    }
+        var HeapsortInstance = new Heapsort();
+        var carss = new Array( "Tess Hagel", "Reatha Cassel", "Tim Clouse", "Salome Husted", "Jermaine Kozak", "Eryn Stacker", "Kyong Watanabe", "Sherrell Kamps","Mai Sills","Joni Rogan","Mattie Flannigan","Dane Parman","Mitchel Manney","Janna Mantyla", "Amos Pearce", "Janita Giroir", "Nery Closson","Adolfo Schram", "Julissa Renteria", "Mallory Rempe" ,"Vina Rumble","Greta Lannon","Booker Bynum", "Cassaundra Baranowski  ","Rodrigo Dunkley","Lenora Stancil","Carolee Nordby","Antonetta Berta",  "Ela Thornburg",  "Lorrine Lynn",  "Phyliss Bolanos",  "Tiny Dieguez",  "Tona Monsour",  "Brittanie Ventura" );
+        var Patients = [];
+        var A = [];
+        var currentUsedIndex = 20;
+        var currentOccupiedSeat = 20;
+
+        function shuffle(a) {
+            var j, x, i;
+            for (i = a.length - 1; i > 0; i--) {
+                j = Math.floor(Math.random() * (i + 1));
+                x = a[i];
+                a[i] = a[j];
+                a[j] = x;
+            }
+        }
+
+        //	Random a new patient with distinct name and condition.
+        function RandomAPatient() {
+            return Patient((name[currentUsedIndex]), A[currentUsedIndex]);
+        }
+        //	Random an Array of Patients with distinct name and condition.
+        function RandomPatients() {
+            for ( i = 0; i < 100; i++) {
+                A[i] = i;
+            }
+            shuffle(A);
+            for ( i = 0; i < 20; i++) {
+                Patients[i] = new Patient(carss[i], A[i]);
+            }
+        }
+
+        function ValidateCurrentQueue(Patients) {
+            if (Patients[0] != null && Patients[1] != null) {
+                if (Patients[0].getCondition() > Patients[1].getCondition()) {
+                    return true;
+                } else return false;
+            } else return false;
+        }
+
+
+
+        $(document).ready(function(){
+        // jQuery methods go here...
+            for(i = 0; i<20; i++){
+                indicator0 = "#card"+i;
+                $(indicator0).hide();
+            }
+            function display(size){
+                for(i = 0; i<20; i++){
+                    indicator0 = "#card"+i;
+                    $(indicator0).hide();
+                }
+                for(i = 0; i<size; i++){
+                indicator0 = "#card"+i;
+                indicator = "#name"+i;
+                indicator1 = "#condition"+i;
+                $(indicator0).show();
+                $(indicator).text(Patients[i].name);
+                $(indicator1).text("Condition: "+ Patients[i].condition)
+            }
+            }
+            function btn0(){
+                HeapsortInstance.Build_Max_Heap(Patients);
+                display(Patients.length);
+                alert("The queue is now a Max-heap tree!");
+            }
+            $("#btn0").click(function(){
+                RandomPatients();
+                display(Patients.length);
+                setTimeout(btn0,3000);
+            });
+            $("#btn1").click(function(){
+                if(ValidateCurrentQueue(Patients)){
+                    alert("The next patient is: "+ HeapsortInstance.Heap_Maximum(Patients).name+ ", Condition: "+ HeapsortInstance.Heap_Maximum(Patients).condition);
+                    display(currentOccupiedSeat);
+                } else alert("Please create new Array of Patients");
+            });
+            $("#btn2").click(function(){
+                if(ValidateCurrentQueue(Patients)){
+                    alert("The patient has just been called is: "+ HeapsortInstance.Heap_Extract_Max(Patients).info);
+                    currentOccupiedSeat --;
+                    display(currentOccupiedSeat);
+                } else alert("Please create new Array of Patients");
+            });
+            $("#btn3").click(function(){
+                if(ValidateCurrentQueue(Patients)){
+                    var patientIndex = prompt("Please enter patient's current index", "0");
+                    while (patientIndex > Patients.length-1 || patientIndex < 0){
+                        patientIndex = prompt("Please enter the correct patient's current index(>=0 and less then )"+Patients.length -1, "0");
+                    }
+                    var newCondition = prompt("Please enter patient's newCondition");
+                    while(newCondition < Patients[patientIndex].condition || newCondition >99){
+                        newCondition = prompt("Please enter patient's newCondition that is less than 99 and greater than "+ Patients[patientIndex].condition);
+                    }
+                    HeapsortInstance.Heap_Increase_Key(Patients, patientIndex, newCondition);
+                    display(currentOccupiedSeat);
+                } else alert("Please create new Array of Patients");
+            });
+            $("#btn4").click(function(){
+                if(ValidateCurrentQueue(Patients)){
+                    if (currentOccupiedSeat>=20){
+                        alert("Please call and remove a patients before adding a new patient.")
+                    } else{
+                        currentUsedIndex++;
+                        console.log(carss[currentUsedIndex])
+                        newPatient = new Patient(carss[currentUsedIndex], A[currentUsedIndex]);
+                        HeapsortInstance.Max_Heap_Insert(Patients, newPatient);
+                        alert("The new random Patient has been added: "+ newPatient.info);
+                        currentOccupiedSeat ++;
+                        display(currentOccupiedSeat);
+                    }
+                } else alert("Please create new Array of Patients");
+            });
+            $("#btn5").click(function(){
+                HeapsortInstance.heapsort(Patients);
+                display(currentOccupiedSeat)
+            });
+        });
+    </script>
+</html>
+
+<!-- Programmer: Phuc Le -->
+<!-- Date: 10/20/2017 -->

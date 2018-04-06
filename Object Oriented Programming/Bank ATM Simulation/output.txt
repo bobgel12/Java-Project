@@ -1,0 +1,39 @@
+Wellcome to Our ATM System
+Assume all accounts have $500 preloaded. 
+WellsFargo has 3 accounts: 
+Customer with card (WellsFargo, card number: 10, expire on 05/12/2017, password: secret
+Customer with card (WellsFargo, card number: 11, expire on 05/15/2018, password: secret
+Customer with card (WellsFargo, card number: 12, expire on 04/16/2019, password: secret
+Bank of America has 3 accounts: 
+Customer with card (Bank of America, card number: 20, expire on 06/26/2016, password: secret
+Customer with card (Bank of America, card number: 21, expire on 09/16/2018, password: secret
+Customer with card (Bank of America, card number: 22, expire on 06/11/2019, password: secret
+
+There are 2 ATM for these 2 banks:
+ATM_1: WellsFargo, ATM's limit: 200.0
+ATM_2: Bank of America, ATM's limit: 300.0
+Please enter your choice of ATM
+Please enter your choice of ATM
+ATM_1 is selected
+Please enter your card number
+This Card has expired and has been returned
+Please enter your card number
+This card is not supported by this ATM and has been returned
+Please enter your card number
+Card Accepted!
+Please enter password
+Wrong password!
+Please enter password
+Authorization is accepted.
+Start your transaction by entering the amount to withdraw.
+This amount exceeds the maximum amount you can withdraw per transaction: 200.0
+Start your transaction by entering the amount to withdraw.
+$200 is withdrawn from  your account. The remaining balance of this account is $300.0
+Enter quit to exit, no to continue
+Start your transaction by entering the amount to withdraw.
+$200 is withdrawn from  your account. The remaining balance of this account is $100.0
+Enter quit to exit, no to continue
+Start your transaction by entering the amount to withdraw.
+The amount exceeds the current balance.
+Enter quit to exit, no to continue
+Exited
